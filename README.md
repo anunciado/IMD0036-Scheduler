@@ -1,88 +1,64 @@
-# Project Title
+# Scheduler
 
-One Paragraph of project description goes here
+In this project, we implemented a scheduler simulator that allows the control of the behavior of processes, with the algorithms: FIFO (First in, first out), where as its own name already says, the first one that arrives will be the first one to be executed, non-preemptivo, that is, it executes the whole process from beginning to end not interrupting the executed process until finalized; RR (Round Robin), in this scheduling the operating system has a timer, called quantum, where all processes gain the same quantum value to run on the CPU, after the quantum ends and the process does not end, a preemption occurs and the process is inserted into the quantum. end of the queue. If the process finishes before a quantum, the CPU is released for the execution of new processes, and finally, Normal, where the scheduling will be given only by its priority. The files that contain the execution parameters of the processes are in tables separated by commas without the names of the columns. As shown below:
 
-## Getting Started
+| ID 	| Priority 	| Quantum 	| Timeleft 	|
+|---	|---	|---	|---	|
+| 1 	| 2 	| 2 	| 4 	|
+| 2 	| 3 	| 4 	| 5 	|
+| 3 	| 4 	| 5 	| 6 	|
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+The ID determines its unique number among existing processes, priority determines its execution priority in relation to the other processes, the quantum determines the execution time given to it for preemptive type schedules, and timeleft determines the execution time remaining for the process is finished. After reading the process file and storing it in the process table, it will be executed according to the scheduling algorithm.
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+You will need to install the modules below to run the program: 
+* [python 3.7 or greater](https://www.python.org/downloads/release/python-370/)
 
+### Running
+
+There are two ways to run the program:
+
+* Compile the IDE (PyCharm - Python IDE):
+1. Just open the IDE
+2. Import the project folder as a Project
+3. Select Run/Debug Configurations:
+For scheduling:
 ```
-Give examples
+<processesfile> <typeofscheduler>
 ```
-
-### Installing
-
-A step by step series of examples that tell you have to get a development env running
-
-Say what the step will be
-
+An example would be:
 ```
-Give the example
+./tests/input.txt normal
 ```
+4. Choose Run scheduling on the context menu.
+5. From this it only interacts with the system and add in script parameters box contents:
 
-And repeat
-
+* Compile by terminal:
+1. Enter the src folder and run the following command:
+For scheduling:
 ```
-until finished
+python scheduling.py <processesfile> <typeofscheduler>
 ```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
+An example would be:
 ```
-Give an example
+python scheduling.py ./tests/input.txt normal
 ```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
+2. From this it only interacts with the system.
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+* [PyCharm](https://www.jetbrains.com/pycharm/) - A IDE used
 
 ## Authors
+### Developers: 
+* **Luís Eduardo Anunciado Silva ([cruxiu@ufrn.edu.br](mailto:cruxiu@ufrn.edu.br))** 
+* **Larissa Gilliane Melo De Moura ([larissagilliane@ufrn.edu.br](mailto:larissagilliane@ufrn.edu.br))** 
+### Project Advisor: 
+* **Julio Cesar Paulino De Melo ([julio.melo@imd.ufrn.br](mailto:julio.melo@imd.ufrn.br))** 
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/cruxiu/IMD0036-Scheduler/contributors) who participated in this project.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone who's code was used
-* Inspiration
-* etc
-
+This project is licensed under the GPL 3.0 - see the [LICENSE](LICENSE) file for details
